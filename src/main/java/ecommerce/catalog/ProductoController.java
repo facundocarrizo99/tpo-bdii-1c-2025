@@ -1,9 +1,10 @@
-package com.ecommerce.catalog;
+package ecommerce.catalog;
 
 import java.util.*;
 
-public class ProductController {
-    private final ProductService service = new ProductService();
+
+public class ProductoController {
+    private final ProductoService service = new ProductoService();
     private final Scanner scanner = new Scanner(System.in);
 
     public void menu() {

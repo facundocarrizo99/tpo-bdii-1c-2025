@@ -1,4 +1,4 @@
-package com.ecommerce.recommendation;
+package ecommerce.recommendation;
 
 import java.util.Scanner;
 

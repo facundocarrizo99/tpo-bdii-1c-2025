@@ -1,4 +1,4 @@
-package com.ecommerce.recommendation;
+package ecommerce.recommendation;
 
 import org.neo4j.driver.*;
 
@@ -31,7 +31,7 @@ public class RecommendationService implements AutoCloseable {
                             "WHERE NOT (u)-[:VIEWED]->(rec) " +
                             "RETURN DISTINCT rec.id AS recommended",
                     Values.parameters("userId", userId))
-            ).list(r -> r.get("recommended").asString()));
+            ).list(r -> r.get("recommended").asString());
         }
     }
 

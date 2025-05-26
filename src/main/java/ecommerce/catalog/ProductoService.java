@@ -1,18 +1,18 @@
-package com.ecommerce.catalog;
+package ecommerce.catalog;
 
 import com.mongodb.client.*;
+import ecommerce.config.MongoConfig;
 import org.bson.Document;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductService {
+public class ProductoService {
     private final MongoCollection<Document> products;
 
-    public ProductService() {
-        MongoClient client = MongoClients.create("mongodb://localhost:27017");
-        MongoDatabase database = client.getDatabase("ecommerce");
-        products = database.getCollection("products");
+    public ProductoService() {
+        MongoDatabase db = MongoConfig.getDatabase();
+        products = db.getCollection("products");
     }
 
     public void addProduct(Product product) {

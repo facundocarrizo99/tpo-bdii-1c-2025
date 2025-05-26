@@ -1,4 +1,4 @@
-package com.ecommerce.session;
+package ecommerce.session;
 
 import java.util.Scanner;
 

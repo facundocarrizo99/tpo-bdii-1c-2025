@@ -1,4 +1,4 @@
-package com.ecommerce.catalog;
+package ecommerce.catalog;
 
 import org.bson.Document;
 import java.util.Map;

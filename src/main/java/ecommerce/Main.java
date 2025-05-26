@@ -1,6 +1,6 @@
 package ecommerce;
 
-import ecommerce.catalog.ProductController;
+import ecommerce.catalog.ProductoController;
 import ecommerce.session.SessionController;
 import ecommerce.recommendation.RecommendationController;
 
@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ProductController catalog = new ProductController();
+        ProductoController catalog = new ProductoController();
         SessionController session = new SessionController();
         RecommendationController recommendation = new RecommendationController();
 
