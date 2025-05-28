@@ -21,7 +21,7 @@ public class RedisConfig {
             new HostAndPort(host, port),
             config
     );
-    
+
 
     public static UnifiedJedis getJedis() {
         return jedis;
