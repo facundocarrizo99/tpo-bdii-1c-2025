@@ -1,11 +1,13 @@
 package ecommerce.session;
 
-import redis.clients.jedis.Jedis;
+import ecommerce.config.RedisConfig;
+import org.bson.types.ObjectId;
+import redis.clients.jedis.UnifiedJedis;
 
 import java.util.*;
 
 public class SessionService {
-    private final Jedis jedis = new Jedis("localhost");
+    private final UnifiedJedis jedis = RedisConfig.getJedis();
 
     public void addToCart(String userId, String productId) {
         jedis.rpush("cart:" + userId, productId);
