@@ -1,0 +1,6 @@
+ecommerce/test/randomTest.class
+ecommerce/test/RedisTest.class
+ecommerce/test/MongoTest.class
+ecommerce/test/UsuarioTest.class
+ecommerce/test/RecommendationServiceTest.class
+ecommerce/test/Neo4jTest.class

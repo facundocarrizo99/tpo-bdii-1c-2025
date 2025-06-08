@@ -1,22 +1,20 @@
 package ecommerce.recommendation;
 
+import ecommerce.catalog.Product;
+import ecommerce.usuario.Usuario;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class RecommendationController {
     private final RecommendationService service = new RecommendationService();
     private final Scanner scanner = new Scanner(System.in);
 
-    private void relacionar() {
-        System.out.print("Usuario: ");
-        String user = scanner.nextLine();
-        System.out.print("ID producto: ");
-        String id = scanner.nextLine();
-        service.relateUserToProduct(user, id);
+    public void relacionarCompra(Usuario usuario, Product producto) {
+        service.relateUserToProduct(usuario.getUsername(), producto.getName());
     }
 
-    private void recomendar() {
-        System.out.print("Usuario: ");
-        String user = scanner.nextLine();
-        service.getRecommendations(user).forEach(System.out::println);
+    public List<String> recomendar(Usuario usuario) {
+        return service.getRecommendations(usuario.getUsername());
     }
 }

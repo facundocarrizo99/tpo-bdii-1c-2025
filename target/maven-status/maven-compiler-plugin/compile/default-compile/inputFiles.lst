@@ -1,0 +1,16 @@
+/Users/facundocarrizo/Documents/BDII/src/main/java/ecommerce/Main.java
+/Users/facundocarrizo/Documents/BDII/src/main/java/ecommerce/catalog/Product.java
+/Users/facundocarrizo/Documents/BDII/src/main/java/ecommerce/catalog/ProductoController.java
+/Users/facundocarrizo/Documents/BDII/src/main/java/ecommerce/catalog/ProductoService.java
+/Users/facundocarrizo/Documents/BDII/src/main/java/ecommerce/config/AppConfig.java
+/Users/facundocarrizo/Documents/BDII/src/main/java/ecommerce/config/MongoConfig.java
+/Users/facundocarrizo/Documents/BDII/src/main/java/ecommerce/config/Neo4jConfig.java
+/Users/facundocarrizo/Documents/BDII/src/main/java/ecommerce/config/RedisConfig.java
+/Users/facundocarrizo/Documents/BDII/src/main/java/ecommerce/recommendation/RecommendationController.java
+/Users/facundocarrizo/Documents/BDII/src/main/java/ecommerce/recommendation/RecommendationService.java
+/Users/facundocarrizo/Documents/BDII/src/main/java/ecommerce/session/Cart.java
+/Users/facundocarrizo/Documents/BDII/src/main/java/ecommerce/session/SessionController.java
+/Users/facundocarrizo/Documents/BDII/src/main/java/ecommerce/session/SessionService.java
+/Users/facundocarrizo/Documents/BDII/src/main/java/ecommerce/usuario/Usuario.java
+/Users/facundocarrizo/Documents/BDII/src/main/java/ecommerce/usuario/UsuarioController.java
+/Users/facundocarrizo/Documents/BDII/src/main/java/ecommerce/usuario/UsuarioService.java

@@ -68,6 +68,7 @@ public class Main {
         System.out.println("2. Ver carrito");
         System.out.println("3. Agregar producto");
         System.out.println("4. Cerrar sesión");
+        System.out.println("5. Ver recomendaciones");
         String op = scanner.nextLine();
 
         switch (op) {
@@ -75,6 +76,7 @@ public class Main {
             case "2" -> verCarrito();
             case "3" -> agregarProducto();
             case "4" -> menuInicio();
+            case "5" -> menuRecomendados();
             default -> System.out.println("Opción inválida.");
         }
     }
@@ -92,7 +94,7 @@ public class Main {
                 verCatalogo();
             }
             case "2" -> {
-                //recommendation.addToRecommendation(this.usuario.getUsername(), p);
+                recommendation.relacionarCompra(this.usuario, p);
                 System.out.println("Producto comprado y agregado a tus recomendaciones.");
                 menuUsuario();
             }
@@ -100,6 +102,7 @@ public class Main {
     }
 
     private void verCarrito() {
+        List<Product> productos = new ArrayList<Product>();
         Cart cart = session.getCart(this.usuario.getUsername());
         List<String> ids = cart.getProductIds();
         if (ids.isEmpty()) {
@@ -110,13 +113,17 @@ public class Main {
         System.out.println("\n--- Carrito ---");
         for (String id : ids) {
             Product p = catalog.getProdctoById(id);
+            productos.add(p);
             if (p != null) System.out.println(p);
         }
 
         System.out.println("1. Comprar todo\n2. Vaciar carrito\n3. Volver");
         switch (scanner.nextLine()) {
             case "1" -> {
-                System.out.println("Productos comprados (simulado).");
+                for (Product p : productos) {
+                    recommendation.relacionarCompra(this.usuario, p);
+                }
+                System.out.println("Productos comprados.");
                 session.clearCart(this.usuario.getUsername());
                 menuUsuario();
             }
@@ -199,5 +206,27 @@ public class Main {
         }
         catalog.agregarProducto(nombre, descripcion, precio, atributos);
         menuUsuario();
+    }
+
+    public void menuRecomendados() {
+        List<String> recomendados = recommendation.recomendar(this.usuario);
+        if (recomendados.isEmpty()) {
+            System.out.println("No hay recomendaciones disponibles.");
+            menuUsuario();
+            return;
+        }
+
+        System.out.println("\n--- Recomendaciones ---");
+        for (String p : recomendados) {
+            System.out.println(p);
+        }
+
+        System.out.println("\n1. Volver al menú principal");
+        String op = scanner.nextLine();
+
+        switch (op) {
+            case "1" -> menuUsuario();
+            default -> System.out.println("Opción inválida.");
+        }
     }
 }

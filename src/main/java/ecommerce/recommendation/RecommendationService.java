@@ -1,15 +1,16 @@
 package ecommerce.recommendation;
 
+import ecommerce.config.Neo4jConfig;
 import org.neo4j.driver.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecommendationService implements AutoCloseable {
     private final Driver driver;
 
     public RecommendationService() {
-        driver = GraphDatabase.driver("bolt://localhost:7687",
-                AuthTokens.basic("neo4j", "password")); // Cambiar usuario/clave
+        driver = Neo4jConfig.getDriver(); // Cambiar usuario/clave
     }
 
     public void relateUserToProduct(String userId, String productId) {
@@ -26,12 +27,20 @@ public class RecommendationService implements AutoCloseable {
 
     public List<String> getRecommendations(String userId) {
         try (Session session = driver.session()) {
-            return session.readTransaction(tx -> tx.run(
-                    "MATCH (u:User {id: $userId})-[:VIEWED]->(:Product)<-[:VIEWED]-(other:User)-[:VIEWED]->(rec:Product) " +
-                            "WHERE NOT (u)-[:VIEWED]->(rec) " +
-                            "RETURN DISTINCT rec.id AS recommended",
-                    Values.parameters("userId", userId))
-            ).list(r -> r.get("recommended").asString());
+            return session.executeRead(tx -> {
+                Result result = tx.run(
+                        "MATCH (other:User)-[:VIEWED]->(rec:Product) " +
+                                "WHERE other.id <> $userId AND NOT EXISTS { " +
+                                "  MATCH (:User {id: $userId})-[:VIEWED]->(rec) " +
+                                "} " +
+                                "RETURN DISTINCT rec.id AS recommended",
+                        Values.parameters("userId", userId)
+                );
+                return result.list(r -> r.get("recommended").asString());
+            });
+        } catch (Exception e) {
+            System.err.println("Error al obtener recomendaciones: " + e.getMessage());
+            return new ArrayList<>();
         }
     }
 

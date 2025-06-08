@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ecommerce.test.Neo4jTest
+-------------------------------------------------------------------------------
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in ecommerce.test.Neo4jTest

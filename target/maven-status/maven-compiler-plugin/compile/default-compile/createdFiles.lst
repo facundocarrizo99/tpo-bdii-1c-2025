@@ -1,0 +1,16 @@
+ecommerce/config/RedisConfig.class
+ecommerce/usuario/Usuario.class
+ecommerce/catalog/Product.class
+ecommerce/Main.class
+ecommerce/session/Cart.class
+ecommerce/catalog/ProductoController.class
+ecommerce/recommendation/RecommendationController.class
+ecommerce/session/SessionService.class
+ecommerce/usuario/UsuarioController.class
+ecommerce/catalog/ProductoService.class
+ecommerce/recommendation/RecommendationService.class
+ecommerce/config/Neo4jConfig.class
+ecommerce/config/MongoConfig.class
+ecommerce/config/AppConfig.class
+ecommerce/session/SessionController.class
+ecommerce/usuario/UsuarioService.class
