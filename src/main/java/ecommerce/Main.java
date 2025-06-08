@@ -4,7 +4,6 @@ import ecommerce.catalog.*;
 import ecommerce.session.*;
 import ecommerce.recommendation.*;
 import ecommerce.usuario.*;
-import org.bson.types.ObjectId;
 
 import java.util.*;
 
@@ -181,7 +180,7 @@ public class Main {
                     }
                 }
                 case "V" -> {
-                    return;
+                    menuUsuario();
                 }
                 default -> System.out.println("Opción inválida.");
             }
